@@ -6,10 +6,12 @@ By Chardae Schnabel and Giulia Cellerino
 
 - [Introduction](#introduction)
 - [Motivation](#motivation)
-- [Features & Views](#features--views)
+- [Features & Views](#features-views)
 - [Tools Used](#tools-used)
 - [Getting Started](#getting-started)
 - [Database Schema](#database-schema)
+- [Relationships](#relationships)
+- [EndRoutes](#endroutes)
 - [API Route](#api-route)
 - [Future Features](#future-features)
 - [Contact](#contact)
@@ -31,24 +33,53 @@ This fitness app focuses on building confidence and inspiring users of all level
 
 This app is made up of the following pages:
 
-- **Homepage:** Provides an overview of the app, featuring essential information and navigation options.
-- **Login:** Allows users to authenticate and access their accounts securely.
+- <h2>Homepage:</h2> Provides an overview of the app, featuring essential information and navigation options.
 
-- **Buildyourownworkout:** Enables users to customize their workout routines based on preferences and goals.
+- <h2>Register && Login:</h2> Provides a registration form for new users to create accounts and join the app. Standard Login page - allows users to authenticate and access their accounts securely.
 
-- **Calendar:** Displays scheduled workouts and fitness events, helping users plan and track their activities.
+  <img src="client/images/READMEimages/RegistrationPage.png" alt="Home Page" width="500"/>
 
-- **Exercise:** Offers detailed information and instructions for various exercises and workout routines.
+  The user has the option to upload a photo...
 
-- **Profile:** Allows users to manage their personal information, track progress, and customize settings.
+  <img src="client/images/READMEimages/RegisterWithPhoto.png" alt="Home Page" width="500"/>
 
-- **Register:** Provides a registration form for new users to create accounts and join the app.
+  And the photo will load in the navbar, when logged in:
 
-- **Sentworkouts:** Shows a history of sent or scheduled workout plans, facilitating organization and planning.
+  <img src="client/images/READMEimages/NavBarWithPhoto.png" alt="Home Page" width="500"/>
 
-- **Sidebar:** Provides quick access to navigation options and additional features throughout the app.
+- <h2>Buildyourownworkout:</h2> Enables users to customize their workout routines based on preferences and goals.
 
-- **Workout:** Presents structured workout routines and exercises tailored to user preferences.
+   <img src="client/images/READMEimages/BuildYourWorkout.png" alt="Home Page" width="500"/>
+
+  Dropdown menu calls the API in order to provide user with WO options.
+
+  <img src="client/images/READMEimages/WorkoutDropdown.png" alt="Home Page" width="500"/>
+
+- <h2>Workout:</h2> Presents structured workout routines and exercises tailored to user preferences.
+
+ <img src="client/images/READMEimages/WorkoutSummary.png" alt="Home Page" width="500"/>
+
+FullCalendar.io was used in order to give the user the option to choose a day and time...
+
+  <img src="client/images/READMEimages/CalendarDrop.png" alt="Home Page" width="200"/>
+
+- <h2>Profile && Calendar:</h2> Profile includes the option to render profile details, see workouts sent by friends and to organze WOs with a drag and drop option in the Calendar. Displays scheduled workouts and fitness events, helping users plan and track their activities.
+
+<img src="client/images/READMEimages/ProfileCalendar.png" alt="Home Page" width="400"/>
+
+Below the calendar is also a month summary of all of the workouts organized for that month, with each workout rendering a separate delete or edit workout option.
+
+<img src="client/images/READMEimages/SummaryOfMonth.png" alt="Home Page" width="300"/>
+
+- <h2>**Exercise:**</h2> Offers detailed information and instructions for various exercises and workout routines, as well as a progress bar to movivate the user (and so they know where they are in their routine)!
+
+<img src="client/images/READMEimages/ExerciseNow.png" alt="Home Page" width="300"/>
+
+- <h2>Sentworkouts:</h2> Shows a history of sent or scheduled workout plans, facilitating organization and planning.
+
+<img src="client/images/READMEimages/SentWorkouts.png" alt="Home Page" width="500"/>
+
+- <h2>Sidebar:</h2> Provides quick access to navigation options and additional features throughout the app.
 
 ## Tools Used
 
@@ -70,7 +101,8 @@ This app is made up of the following pages:
 - **DrawSQL** - Tool for creating database diagrams
 - **FullCalendar.io** - JavaScript calendar library for displaying events
 - **Material-UI** - React component library for building UIs with Google's Material Design principles
-- **Exercise API** - API for retrieving exercises and workout data from [Ninja API](https://api-ninjas.com/api/exercises)
+- **Exercise API** - API for retrieving exercises and workout data from:
+  [Ninja API](https://api-ninjas.com/api/exercises)
 
 ## Getting Started
 
@@ -149,16 +181,16 @@ Frontend runs on http://localhost:5173/, and backend runs on http://localhost:40
 
 ## Database Schema
 
-![Database Schema Diagram](../fs35-team-A/client/images/databaseschema.png)
+![Database Schema Diagram](/client/images/READMEimages/DatabaseSetup.png)
 
 ### Relationships
 
-### Example Queries
+### Endroutes
+
+- Click here to see the http method, description, request and response objects for each of our endroutes.
+  https://docs.google.com/document/d/1VD0Nsywif69Nr0MCx-je22KXIx5FMICRA2M1A-4CoNg/edit
 
 ## API Route
-
-- Enpoints description
-- We can create a PDF file and link it
 
 ## Future Features
 

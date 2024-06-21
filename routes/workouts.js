@@ -89,9 +89,8 @@ router.get("/:workout_id", async function (req, res, next) {
     exercisesByWorkout = `SELECT exercises.*, workouts.date FROM workouts LEFT JOIN exercises ON workouts.id = exercises.workout_id WHERE workouts.id = ${workout_id}`;
     const result = await db(exercisesByWorkout);
 
-    // This does the grouping by wo_id
+
     const groupedData = group(result.data, (d) => d.workout_id);
-    // console.log(result.data);
     const formattedData = Array.from(groupedData, ([key, values]) => {
       return {
         id: key,
@@ -117,7 +116,7 @@ router.put(
       const workout_id = req.params.workout_id; // same as above
       const { date } = req.body; // Extract the updated date from the request body
       const exercisesByWorkoutUpdate = `UPDATE workouts SET date = '${date}', sender_id = null WHERE id = ${workout_id}`;
-      await db(exercisesByWorkoutUpdate); // Update the workout date in the database
+      await db(exercisesByWorkoutUpdate); 
       res.status(200).send({ message: "Workout updated successfully" });
     } catch (err) {
       console.error("Error updating workout:", err);
@@ -159,7 +158,7 @@ router.delete(
 // Finally, it retrieves the complete list of exercises for the created workout and sends it back as a response.
 router.post("/", userShouldBeLoggedIn, async function (req, res, next) {
   try {
-    const user_id = req.user_id; // comes from the guard
+    const user_id = req.user_id; //comes from the guard 
     const { date, exercises } = req.body; // getting the date and exs from the body of the req
     const createWorkout = `INSERT INTO workouts (user_id, date) VALUES (${user_id}, '${date}'); SELECT LAST_INSERT_ID()`; // Insert a new wokrout into the table with the given user_id and date.
     // Retrives the last inserted ID
@@ -177,7 +176,6 @@ router.post("/", userShouldBeLoggedIn, async function (req, res, next) {
     const finalWorkoutResult = await db(finalWorkout);
     const workout = finalWorkoutResult.data[0];
     workout.exercises = finalExerciseResult.data;
-    // Extracts the workout details and exercises from the results of the database queries.
     res.status(200).send(workout);
   } catch (err) {
     console.error("Error creating workout:", err);
